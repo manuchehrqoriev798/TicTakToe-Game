@@ -1,0 +1,334 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+*{                                                              
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+
+/* Styles for description */
+.description{
+    display: none;
+    width: 100vw;
+    position: absolute;
+    transform: translate(-50%, -50%);      /*bug: dont forget to edit this part according to container part on each medeas */
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    font-family: "Poppins", sans-serif ;
+    box-shadow: 5px 3px 10px gold;
+}
+.popup-description{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+    padding: 20px 40px;
+}
+.popup-description button{
+    display: block;
+    margin: 0 0 0 auto;
+    padding: 10px;
+    background-color: transparent;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+}
+.popup-description ul{
+}
+.popup-description li{
+}
+.popup-description h2{
+    text-align: center;
+    color: yellow;
+    margin: 10px 0;
+}
+#close-link a{
+    display: block;
+    color: black;
+    font-weight: 700;
+    background-color: gold;
+    border: 1px solid white;
+    width: 100px;
+    padding: 12px 10px;
+    border-radius: 10px;
+    box-shadow: 5px 3px 10px gold;
+    text-align: center;
+    text-decoration: none;
+    transform: translate(-50%, -50%);        /*bug: dont forget to edit this part according to container part on each medeas */
+    position: relative;
+    left: 50%;
+    margin-top: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+}
+
+
+
+/* Game over */
+.game-over {
+    display: none;
+    width: 60vw;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    font-family: "Poppins", sans-serif ;
+    box-shadow: 5px 3px 10px gold;
+}
+.popup-title {
+    text-align: center;
+    color: rgb(0, 255, 8);
+}
+.popup-reset{
+    text-align: center;
+    margin: 0 auto;
+    border: 1px solid rgb(0, 255, 8);
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.popup-reset:hover{
+    background-color: rgb(0, 255, 8);
+    color: white;
+    font-weight: 700;
+}
+.popup-game-over {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+    padding: 20px 40px;
+}
+
+
+
+
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 50%; /*bug: control it so that in phone it should be ok. YOu can put 5050 here and change in other width*/
+    background-color: black;
+    color: gold;
+    /* to center the div*/
+    left: -50%;
+    transform: translate(50%);
+    margin: 0 0 0 0 ;
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 3px 5px 25px gold;
+}
+.title {
+    text-align: center;
+    font-size: 35px;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+}
+.title span{
+    color: white;
+}
+.status-reset {
+    display: flex;
+    justify-content: space-between;      /* space between in order not to push reset element*/
+    padding: 20px 0;
+    margin-top: 3%;
+    font-size: 20px;
+    width: 80%;                          /* width 80% for limiting the total width. If 100% it would stay on the corners but I want from them to stay closer to center*/
+}
+.status {
+    border-radius: 3px;
+    padding: 10px 0 10px 5px;
+    background-color: black;
+    border-left: 4px solid white;
+    color: white;
+}
+.reset {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid white;
+    box-shadow: 1px 1px 10px white;
+}
+.reset:hover{
+    color: black;
+    background-color: gold;
+    transition: .5s;
+}
+
+
+
+
+
+
+
+
+
+
+
+.game-grid {
+    /* grid is for location 3*3 */
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);          /* divids width for 3 elements that are equeally destributed*/              
+    grid-template-columns: repeat(3, 1fr);       /* divids hight for 3 elements that are equeally destributed*/
+    grid-gap: 7px; 
+    margin-top: 5%;
+    background-color: rgb(218, 209, 209);
+}
+.game-cell {
+    /* flex is for putting signs*/
+    display: flex;                            
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;                                          
+} 
+
+
+
+
+
+
+
+
+
+.x, .o {
+    cursor: default;                                          
+}
+
+.game-cell::before {          
+    content: '';
+} 
+.x::after{                     
+    content: '×';                    
+    color: white;
+    font-size: 100px;
+}
+.o::after{
+    content: 'O';                       
+    font-size: 70px;
+}
+.won::after{
+    color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 950px){
+    .container {
+        width: 60%; 
+        left: -80%;
+        transform: translate(35%);
+        margin: 0 0 0 0 ;
+        padding: 35px;
+        border-radius: 10px;
+        box-shadow: 3px 5px 25px gold;
+    }
+    .game-cell{
+        height: 90px;
+        width: 90px;
+    }
+    .status-reset{
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+    }
+    .reset {
+        margin: 0 auto;
+    }
+    .x::after{
+        font-size: 70px;
+    }
+    .o::after{
+        font-size: 50px;
+    }
+    .game-over {
+        width: 80vw;
+    }
+} 
+
+
+
+@media only screen and (max-width: 750px){
+    .container {
+        width: 80%; 
+        left: -80%;
+        transform: translate(15%);
+        margin: 0 0 0 0 ;
+        padding: 35px;
+        border-radius: 10px;
+        box-shadow: 3px 5px 25px gold;
+    }
+    .game-over {
+        width: 90vw;
+    }
+} 
+
+
+@media only screen and (max-width: 535px){
+    .status{
+        padding: 0;
+        margin: 0;
+        font-size: 18px;
+    }
+    .status-reset{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+    .status{
+        padding: 10px 0;
+    }
+} 
+
+@media only screen and (max-width: 450px){
+    .container {
+        width: 95%; 
+        left: -80%;
+        transform: translate(2%);
+        margin: 0 0 0 0 ;
+        padding: 35px;
+        border-radius: 10px;
+        box-shadow: 3px 5px 25px gold;
+    }
+    .game-over {
+        width: 100vw;
+    }
+} 
+
+@media only screen and (max-width: 365px){
+    .container {
+        width: 100%; 
+        transform: translate(0%);
+    }
+    .game-cell{
+        height: 55px;
+        width: 55px;
+    }
+} 
+
